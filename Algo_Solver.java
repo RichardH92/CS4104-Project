@@ -8,7 +8,8 @@ public class Algo_Solver {
 
 	public Algo_Solver(Graph g) {
 
-		// Building array of events
+		queue = new Stack<EndpointEvent>();
+		// Building queue of events
 		build_event_queue(g);
 	}
 

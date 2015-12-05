@@ -38,9 +38,14 @@ public class Temp_Tests {
 		System.out.println("After sorting...\n");
 
 		Arrays.sort(points, new EndpointComparator());
-
+		Stack<EndpointEvent> queue = new Stack<EndpointEvent>();
 		for (int i = 0; i < points.length; i++) {
-			System.out.println(points[i].toString());
+			queue.push(points[i]);
+		}
+
+		while (!queue.empty()) {
+			EndpointEvent event = queue.pop();
+			System.out.println(event.toString());
 		}
 	}
 }
