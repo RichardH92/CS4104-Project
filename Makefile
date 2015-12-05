@@ -1,4 +1,4 @@
-classes = trees/AVLTree.java Point.java Segment.java Graph.java Brute_Force_Solver.java EndpointEvent.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java IntersectEvent.java
+classes = AVLTree.java AVLNode.java Point.java Segment.java Graph.java Brute_Force_Solver.java EndpointEvent.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java IntersectEvent.java
 tests = Test_Suite.java Test_Segment.java Temp_Tests.java
 
 Make:

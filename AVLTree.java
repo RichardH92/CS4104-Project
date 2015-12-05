@@ -96,6 +96,36 @@ public void insert(E element){
   insert(element, rootAbove.getLeft());
 }
 
+/*
+     * Return the parent tree 
+     */
+    public AVLNode<E> get_parent(AVLNode<E> x) {
+        if (rootAbove == null) 
+            return null;
+        else if (x == null)
+            return null; 
+        else if (rootAbove.equals(x))
+            return null; 
+        AVLNode<E> value = get_parent_helper(rootAbove.getLeft(), rootAbove, x);
+        if (value == null)
+            return get_parent_helper(rootAbove.getRight(), rootAbove, x);
+        return value; 
+    }
+    /*
+     * Returns the parent tree 
+     */
+    public AVLNode<E> get_parent_helper(AVLNode<E> currentNode, AVLNode<E> root, AVLNode<E> x) {
+        if (currentNode == null)
+            return null; 
+        if (currentNode.equals(x))
+            return rootAbove;
+        AVLNode<E> value = get_parent_helper(currentNode.getLeft(), currentNode, x);
+        if (value == null)
+            return get_parent_helper(currentNode.getRight(), currentNode, x); 
+        return value; 
+    }
+
+
   /**
    * @param element: The element to insert into the Tree
    * @param temp: The AVLNode to evaluate for recursive insertion
