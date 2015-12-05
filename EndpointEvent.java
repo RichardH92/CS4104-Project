@@ -17,6 +17,10 @@ public class EndpointEvent {
 		return type; 
 	}
 
+	public int getTypePriority() {
+		return type.ordinal();
+	}
+
 	public String toString() {
 		return type.toString() + " EndpointEvent\ny-coord: " + point.get_y_coord();
 	}
