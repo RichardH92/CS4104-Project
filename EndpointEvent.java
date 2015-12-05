@@ -13,4 +13,7 @@ public class EndpointEvent {
 		this.segment = segment;
 		this.type = type;
 	}
+	public Type getType(){
+		return type; 
+	}
 }
