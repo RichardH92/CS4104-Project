@@ -4,6 +4,7 @@ public class Algo_Solver {
 	//private Queue of events
 	private Stack<EndpointEvent> queue;
 	//private Tree of segments
+	//AVLTree of current segmentsion
 
 	public Algo_Solver(Graph g) {
 
@@ -57,19 +58,27 @@ public class Algo_Solver {
 	private void handle_event(EndpointEvent e) {
 		switch (e.getType()) {
 			case LEFT:
-
+				//insert e.segment
+				//find neighbors
+				//Check for intersections with neighbors
+				//If intersects:
+				//	create new intersect point, insert in queue
 				break;
 
 			case RIGHT:
-
+				//Delete e.segment from tree
 				break;
 
 			case TOP:
-
+				//insert e.segment
+				//find neighbors
+				//Check for intersections with neighbors
+				//If intersects:
+				//	create new intersect point, insert in queue
 				break;
 
 			case BOTTOM:
-
+				//Delete e.segment from tree
 				break;
 
 			case INTERSECT:
@@ -77,6 +86,8 @@ public class Algo_Solver {
 				break;
 		}
 	}
+
+
 
 
 }
