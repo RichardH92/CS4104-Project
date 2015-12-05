@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Algo_Solver {
 	//private Queue of events
-	//private Tree of segments
+	//AVLTree of current segments
 
 	public Algo_Solver(Graph g) {
 		//TODO: Preprocess shit
