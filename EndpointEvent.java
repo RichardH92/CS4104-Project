@@ -1,8 +1,4 @@
 public class EndpointEvent {
-	public enum Type  {
-		LEFT, RIGHT, TOP, BOTTOM, INTERSECT
-	}
-
 	Type type;
 
 	Point point;
@@ -13,6 +9,7 @@ public class EndpointEvent {
 		this.segment = segment;
 		this.type = type;
 	}
+
 	public Type getType(){
 		return type; 
 	}

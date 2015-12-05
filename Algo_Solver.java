@@ -10,6 +10,8 @@ public class Algo_Solver {
 
 	public List<Point> find_intersection_points() {
 		//while queue not empty
+
+		return null;
 	}
 
 	private void preprocess_segments(Segment[] segments) {
@@ -17,23 +19,30 @@ public class Algo_Solver {
 	}
 
 	private EndpointEvent make_event() {
-
+		return null;
 	}
 
 	private void handle_event(EndpointEvent e) {
-		switch (EndpointEvent.Type) {
-			case Left:
+		switch (e.getType()) {
+			case LEFT:
 
 				break;
 
-			case Right:
+			case RIGHT:
 
 				break;
 
+			case TOP:
 
-			//....
+				break;
 
+			case BOTTOM:
 
+				break;
+
+			case INTERSECT:
+
+				break;
 		}
 	}
 
