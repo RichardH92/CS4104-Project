@@ -1,5 +1,5 @@
 public class EndpointEvent {
-	enum Type  {
+	public enum Type  {
 		LEFT, RIGHT, TOP, BOTTOM, INTERSECT
 	}
 
