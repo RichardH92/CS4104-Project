@@ -2,10 +2,6 @@ import java.util.*;
 
 public class EndpointEvent implements Comparable<EndpointEvent> {
 
-	public enum Type  {
-		LEFT, RIGHT, TOP, BOTTOM, INTERSECT
-	}
-
 	Type type;
 
 	Point point;
@@ -15,6 +11,10 @@ public class EndpointEvent implements Comparable<EndpointEvent> {
 		this.point = point;
 		this.segment = segment;
 		this.type = type;
+	}
+
+	public Type getType(){
+		return type; 
 	}
 
 	@Override 
