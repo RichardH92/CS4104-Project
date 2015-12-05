@@ -238,4 +238,18 @@ public class Test_Segment {
 
 		return ret;	
 	}
+
+	public static void Test_Running_Time_For_n_Segments(int n) {
+		System.out.println("Test_Running_Time_For_n_Segments\n");
+
+		Graph graph = new Graph(n);
+
+		long startTime = System.nanoTime();
+		Brute_Force_Solver.solve(graph);
+		long endTime = System.nanoTime();
+
+		long totalTime = (endTime - startTime) / 1000000;
+
+		System.out.println("Brute force algorithm ran for " + n + " segments in " + totalTime + " milliseconds");
+	}
 }

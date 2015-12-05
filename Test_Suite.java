@@ -12,5 +12,6 @@ public class Test_Suite {
 		Test_Segment.Test_Overlaps_True();
 		Test_Segment.Test_Overlaps_False();
 		Test_Segment.Test_Overlaps_Equal_Endpoints();
+		Test_Segment.Test_Running_Time_For_n_Segments(2000);
 	}
 }
