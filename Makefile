@@ -1,2 +1,16 @@
+classes = Point.java Segment.java Graph.java Brute_Force_Solver.java AvlTree.java
+tests = Test_Suite.java Test_Segment.java
+
 Make:
-	javac main.java Point.java Segment.java
+	javac main.java $(classes)
+
+test:
+	javac $(classes) $(tests)
+	java Test_Suite
+
+run:
+	javac main.java $(classes)
+	java main
+
+clean:
+	rm *.class
