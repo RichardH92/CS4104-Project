@@ -48,16 +48,31 @@ public class Segment implements Comparable<Segment>{
 			double x2 = min_x + (max_x - min_x) * random.nextDouble();
 			double y = min_y + (max_y - min_y) * random.nextDouble();
 
-			a = new Point(x1, y);
-			b = new Point(x2, y);
+			if (x1 < x2) {
+				a = new Point(x1, y);
+				b = new Point(x2, y);
+			}
+			else {
+				a = new Point(x2, y);
+				b = new Point(x1, y);
+			}
+
+			
 		}
 		else {
 			double y1 = min_y + (max_y - min_y) * random.nextDouble();
 			double y2 = min_y + (max_y - min_y) * random.nextDouble();
 			double x = min_x + (max_x - min_x) * random.nextDouble();
 
-			a = new Point(x, y1);
-			b = new Point(x, y2);	
+			if (y1 > y2) {
+				a = new Point(x, y1);
+				b = new Point(x, y2);	
+			}
+			else {
+				a = new Point(x, y2);
+				b = new Point(x, y1);	
+			}
+				
 		}
 	}
 	public Point get_point_a() {

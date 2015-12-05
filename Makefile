@@ -1,5 +1,5 @@
 classes = Point.java Segment.java Graph.java Brute_Force_Solver.java AvlTree.java EndpointEvent.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java
-tests = Test_Suite.java Test_Segment.java
+tests = Test_Suite.java Test_Segment.java Temp_Tests.java
 
 Make:
 	javac main.java $(classes)

@@ -16,4 +16,8 @@ public class EndpointEvent {
 	public Type getType(){
 		return type; 
 	}
+
+	public String toString() {
+		return type.toString() + " EndpointEvent\ny-coord: " + point.get_y_coord();
+	}
 }
