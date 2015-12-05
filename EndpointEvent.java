@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EndpointEvent implements Comparable<EndpointEvent> {
+public class EndpointEvent {
 
 	Type type;
 
@@ -15,18 +15,5 @@ public class EndpointEvent implements Comparable<EndpointEvent> {
 
 	public Type getType(){
 		return type; 
-	}
-
-	@Override 
-	public int compareTo(EndpointEvent otherEndpointEvent) {
-		if (this.point.get_x_coord() > otherEndpointEvent.point.get_x_coord()) {
-			return 1;
-		}
-		else if (this.point.get_x_coord() < otherEndpointEvent.point.get_x_coord()) {
-			return -1;
-		}
-		else {
-			return 0;
-		}
 	}
 }
