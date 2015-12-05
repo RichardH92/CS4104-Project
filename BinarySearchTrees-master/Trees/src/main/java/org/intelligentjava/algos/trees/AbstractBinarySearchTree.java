@@ -52,6 +52,33 @@ public abstract class AbstractBinarySearchTree {
         return node;
     }
 
+    /*
+     * Return the parent tree 
+     */
+    public Node get_parent(Node x) {
+        if (root == null) 
+            return null;
+        else if (x == null)
+            return null; 
+        else if (root.equals(x))
+            return null; 
+        Node value = get_parent_helper(root.left, root, x);
+        if (value == null)
+            return get_parent_helper(root.right, root, x);
+    }
+    /*
+     * Returns the parent tree 
+     */
+    public Node get_parent_helper(Node currentNode, Node root, Node x) {
+        if (currentNode == null)
+            return null; 
+        if (currentNode.equals(x))
+            return root;
+        Node value = get_parent_helper(currentNode.left, root, x);
+        if (value == null)
+            return get_parent_helper(currentNode.right, root, x); 
+    }
+
     /**
      * Insert new element to tree.
      * 
