@@ -1,0 +1,16 @@
+classes = trees/AVLTree.java AbstractSelfBalancingBinarySearchTree.java AbstractBinarySearchTree.java Point.java Segment.java Graph.java Brute_Force_Solver.java EndpointEvent.java AVLTree.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java
+tests = Test_Suite.java Test_Segment.java
+
+Make:
+	javac main.java $(classes)
+
+test:
+	javac $(classes) $(tests)
+	java Test_Suite
+
+run:
+	javac main.java $(classes)
+	java main
+
+clean:
+	rm *.class
