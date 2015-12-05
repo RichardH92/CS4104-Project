@@ -1,4 +1,4 @@
-classes = Point.java Segment.java Graph.java Brute_Force_Solver.java AvlTree.java EndpointEvent.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java
+classes = Point.java Segment.java Graph.java Brute_Force_Solver.java EndpointEvent.java Algo_Solver.java EndpointEvent.java Type.java EndpointComparator.java IntersectEvent.java
 tests = Test_Suite.java Test_Segment.java
 
 Make:
