@@ -1,4 +1,7 @@
-public class EndpointEvent {
+import java.util.*;
+
+public class EndpointEvent implements Comparable<EndpointEvent> {
+
 	public enum Type  {
 		LEFT, RIGHT, TOP, BOTTOM, INTERSECT
 	}
@@ -12,5 +15,18 @@ public class EndpointEvent {
 		this.point = point;
 		this.segment = segment;
 		this.type = type;
+	}
+
+	@Override 
+	public int compareTo(EndpointEvent otherEndpointEvent) {
+		if (this.point.get_x_coord() > otherEndpointEvent.point.get_x_coord()) {
+			return 1;
+		}
+		else if (this.point.get_x_coord() < otherEndpointEvent.point.get_x_coord()) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
 	}
 }
