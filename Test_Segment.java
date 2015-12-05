@@ -240,7 +240,7 @@ public class Test_Segment {
 	}
 
 	public static void Test_Running_Time_For_n_Segments(int n) {
-		System.out.println("Test_Running_Time_For_n_Segments\n");
+		System.out.println("Test_Running_Time_For_n_Segments");
 
 		Graph graph = new Graph(n);
 
@@ -250,6 +250,6 @@ public class Test_Segment {
 
 		long totalTime = (endTime - startTime) / 1000000;
 
-		System.out.println("Brute force algorithm ran for " + n + " segments in " + totalTime + " milliseconds");
+		System.out.println("Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\n");
 	}
 }
