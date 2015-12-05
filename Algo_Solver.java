@@ -8,6 +8,12 @@ public class Algo_Solver {
 
 	public Algo_Solver(Graph g) {
 
+		// Building array of events
+		build_event_queue(g);
+	}
+
+	public void build_event_queue(Graph g) {
+		// Building array of events
 		Segment[] segments = g.get_segments();
 		EndpointEvent[] events = new EndpointEvent[2 * segments.length];
 
@@ -34,6 +40,7 @@ public class Algo_Solver {
 			event_i += 2; 
 		}
 		
+		// Sorting 
 		Arrays.sort(events, new EndpointComparator());
 
 		for (int i = 0; i < events.length; i++) {
