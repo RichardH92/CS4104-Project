@@ -1,6 +1,6 @@
-import java.util.Random;
+import java.util.*;
 
-public class Segment {
+public class Segment implements Comparable<Segment>{
 	private final double DEFAULT_MIN_X = 0.0;
 	private final double DEFAULT_MAX_X = 100.0;
 	private final double DEFAULT_MIN_Y = 0.0;
@@ -8,6 +8,22 @@ public class Segment {
 
 	private Point a = null;
 	private Point b = null;
+
+	@Override
+	public int compareTo(Segment otherSegment) {
+		double thisXCoord = this.get_point_a().get_x_coord();
+		double otherXCoord = otherSegment.get_point_a().get_x_coord();
+
+		if (thisXCoord > otherXCoord) {
+			return 1;
+		}
+		else if (thisXCoord < otherXCoord) {
+			return -1;
+		}
+		else {
+			return 0;
+		}
+	}
 
 	public Segment(Point p_a, Point p_b) {
 		assert(a.get_x_coord() == b.get_x_coord() || a.get_y_coord() == b.get_y_coord());
@@ -44,7 +60,6 @@ public class Segment {
 			b = new Point(x, y2);	
 		}
 	}
-
 	public Point get_point_a() {
 		return a;
 	}
