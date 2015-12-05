@@ -117,8 +117,8 @@ public void insert(E element){
     public AVLNode<E> get_parent_helper(AVLNode<E> currentNode, AVLNode<E> root, AVLNode<E> x) {
        if (currentNode == null)
             return null; 
-        System.out.println("current " + currentNode.getElement() + " and x " + x.getElement() );
-        System.out.println(".equls is " + currentNode.getElement().equals(x.getElement()));
+        //System.out.println("current " + currentNode.getElement() + " and x " + x.getElement() );
+        //System.out.println(".equls is " + currentNode.getElement().equals(x.getElement()));
         if (currentNode.getElement().equals(x.getElement())) 
         {
             return root;
