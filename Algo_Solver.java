@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Algo_Solver {
 	//private Queue of events
 	//private Tree of segments
@@ -10,16 +12,29 @@ public class Algo_Solver {
 		//while queue not empty
 	}
 
-	private void preprocess_segments(segment[] segments) {
+	private void preprocess_segments(Segment[] segments) {
 		//Make segments into events
 	}
 
-	private Endpoint_Event make_event() {
+	private EndpointEvent make_event() {
 
 	}
 
-	private void handle_event(Endpoint_Event e) {
-		//Switch event type
+	private void handle_event(EndpointEvent e) {
+		switch (EndpointEvent.Type) {
+			case Left:
+
+				break;
+
+			case Right:
+
+				break;
+
+
+			//....
+
+
+		}
 	}
 
 
