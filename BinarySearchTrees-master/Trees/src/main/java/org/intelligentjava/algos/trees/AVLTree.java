@@ -33,7 +33,7 @@ public class AVLTree extends AbstractSelfBalancingBinarySearchTree {
         rebalance((AVLNode)newNode);
         return newNode;
     }
-
+  
     /**
      * @see org.intelligentjava.algos.trees.AbstractBinarySearchTree#delete(int)
      */
