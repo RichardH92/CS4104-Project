@@ -3,7 +3,7 @@ public class Point {
 	private double y_coord = 0.0;
 
 	public Point(double p_x, double p_y) {
-    		x_coord = p_x;
+		x_coord = p_x;
 		y_coord = p_y;
 	}
 
@@ -15,4 +15,16 @@ public class Point {
 		return y_coord;
 	}
 
+	public boolean Equals(Point p) {
+		if (x_coord == p.get_x_coord() && y_coord == p.get_y_coord())
+			return true;
+
+		else return false;	
+	}
+
+	public String toString() {
+		String ret = "(" + x_coord + "," + " " + y_coord + ")";
+
+		return ret;
+	}
 }
