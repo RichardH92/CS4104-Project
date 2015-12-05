@@ -100,26 +100,30 @@ public void insert(E element){
      * Return the parent tree 
      */
     public AVLNode<E> get_parent(AVLNode<E> x) {
-        if (rootAbove == null) 
+        if (rootAbove.getLeft() == null) 
             return null;
         else if (x == null)
             return null; 
-        else if (rootAbove.equals(x))
+        else if (rootAbove.getLeft().getElement().equals(x.getElement()))
             return null; 
-        AVLNode<E> value = get_parent_helper(rootAbove.getLeft(), rootAbove, x);
+         AVLNode<E> value = get_parent_helper(rootAbove.getLeft(), rootAbove.getLeft(), x);
         if (value == null)
-            return get_parent_helper(rootAbove.getRight(), rootAbove, x);
+            return get_parent_helper(rootAbove.getRight(), rootAbove.getLeft(), x);
         return value; 
     }
     /*
      * Returns the parent tree 
      */
     public AVLNode<E> get_parent_helper(AVLNode<E> currentNode, AVLNode<E> root, AVLNode<E> x) {
-        if (currentNode == null)
+       if (currentNode == null)
             return null; 
-        if (currentNode.equals(x))
-            return rootAbove;
-        AVLNode<E> value = get_parent_helper(currentNode.getLeft(), currentNode, x);
+        System.out.println("current " + currentNode.getElement() + " and x " + x.getElement() );
+        System.out.println(".equls is " + currentNode.getElement().equals(x.getElement()));
+        if (currentNode.getElement().equals(x.getElement())) 
+        {
+            return root;
+        }
+         AVLNode<E> value = get_parent_helper(currentNode.getLeft(), currentNode, x);
         if (value == null)
             return get_parent_helper(currentNode.getRight(), currentNode, x); 
         return value; 
