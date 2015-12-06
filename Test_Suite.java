@@ -12,13 +12,14 @@ public class Test_Suite {
 		Test_Segment.Test_Overlaps_True();
 		Test_Segment.Test_Overlaps_False();
 		Test_Segment.Test_Overlaps_Equal_Endpoints();
-		Test_Segment.Test_Running_Time_For_n_Segments(10);
+		/*Test_Segment.Test_Running_Time_For_n_Segments(10);
 		Test_Segment.Test_Running_Time_For_n_Segments(100);
 		Test_Segment.Test_Running_Time_For_n_Segments(500);
 		Test_Segment.Test_Running_Time_For_n_Segments(1000);
 		Test_Segment.Test_Running_Time_For_n_Segments(2000);
 		Test_Segment.Test_Running_Time_For_n_Segments(10000);
-		Test_Segment.Test_Running_Time_For_n_Segments(20000);
+		Test_Segment.Test_Running_Time_For_n_Segments(20000);*/
 		Temp_Tests.Test_EndpointEvent_Sorting();
+		Temp_Tests.Test_AVLTree_getParent();
 	}
 }
