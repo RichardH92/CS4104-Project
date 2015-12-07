@@ -1,17 +1,15 @@
-import trees.*;
 import java.util.*;
 
 public class Algo_Solver {
-	//private Queue of events
 	private Stack<EndpointEvent> queue;
-	//private Tree of segments
-	//AVLTree of current segmentsion
+	private AVLTree<Segment> t;
+	private ArrayList<Point> i_points;
 
 	public Algo_Solver(Graph g) {
-
 		queue = new Stack<EndpointEvent>();
 		// Building queue of events
 		build_event_queue(g);
+		t = new AVLTree<Segment>();
 	}
 
 	public void build_event_queue(Graph g) {
@@ -51,49 +49,99 @@ public class Algo_Solver {
 	}
 
 	public List<Point> find_intersection_points() {
-		//while queue not empty
+		i_points = new ArrayList<Point>();
 
-		return null;
-	}
+		while (!queue.empty()) {
+			handle_event(queue.pop());
+		}
 
-	private void preprocess_segments(Segment[] segments) {
-		//Make segments into events
-	}
-
-	private EndpointEvent make_event() {
-		return null;
+		return i_points;
 	}
 
 	private void handle_event(EndpointEvent e) {
 		switch (e.getType()) {
 			case LEFT:
-				//insert e.segment
-				//find neighbors
-				//Check for intersections with neighbors
-				//If intersects:
-				//	create new intersect point, insert in queue
+				intersection_check_helper(e);
 				break;
 
 			case RIGHT:
-				//Delete e.segment from tree
+				t.remove(e.segment);
 				break;
 
 			case TOP:
-				//insert e.segment
-				//find neighbors
-				//Check for intersections with neighbors
-				//If intersects:
-				//	create new intersect point, insert in queue
+				intersection_check_helper(e);
 				break;
 
 			case BOTTOM:
-				//Delete e.segment from tree
+				t.remove(e.segment);
 				break;
 
 			case INTERSECT:
+				intersection_event_helper((IntersectEvent) e);
 
 				break;
 		}
+	}
+
+	private void intersection_check_helper(EndpointEvent e) {
+		t.insert(e.segment);
+		Segment neighbors[] = get_neighbors(e.segment);
+
+		for (int i = 0; i < 3; i++) {
+			if (neighbors[i] != null) {
+
+				Point temp = e.segment.intersects(neighbors[i]);
+				if (temp != null) {
+					i_points.add(temp);
+					IntersectEvent ie = new IntersectEvent(temp, e.segment, Type.INTERSECT, neighbors[i]);
+					queue.push(ie);
+				}
+			}
+		}
+
+	}
+
+	private void intersection_event_helper(IntersectEvent e) {
+
+		AVLNode<Segment> temp = t.find(e.i_segment);
+		AVLNode<Segment> parent = t.get_parent(temp);
+		if (parent != null && parent.getLeft() == temp) {
+			Point tempPoint = e.segment.intersects(parent.getElement());
+			if (tempPoint != null) {
+				i_points.add(tempPoint);
+				IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, parent.getElement());
+				queue.push(ie);	
+			}
+		}
+
+		if (temp.getRight() != null) {
+			Point tempPoint = e.segment.intersects(temp.getRight().getElement());
+			if (tempPoint != null) {
+				i_points.add(tempPoint);
+				IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, temp.getRight().getElement());
+				queue.push(ie);
+			}
+		}
+	}
+
+	private Segment[] get_neighbors(Segment s) {
+
+		AVLNode<Segment> temp = t.find(s);
+		Segment[] neighbors = new Segment[3];
+
+		if (temp != null) {
+			if (temp.getLeft() != null)
+				neighbors[0] = temp.getLeft().getElement();
+
+			if (temp.getRight() != null)
+				neighbors[1] = temp.getRight().getElement();
+
+			if (t.get_parent(temp) != null)
+				neighbors[2] = t.get_parent(temp).getElement();
+		}	
+ 
+		return neighbors;
+
 	}
 
 

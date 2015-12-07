@@ -15,7 +15,7 @@ public void rotate(AVLNode<E> rotateBase, AVLNode<E> rootAbove){
  int balance = rotateBase.getBalance();
 
  if(Math.abs(balance) < 2){
-   System.out.println("No rotate");
+   //System.out.println("No rotate");
  }
 
        //gets the child on the side with the greater height
@@ -94,6 +94,10 @@ else if(balance > 1 && childBalance < 0){
    * */
 public void insert(E element){
   insert(element, rootAbove.getLeft());
+}
+
+public void remove(E element) {
+  remove(element, rootAbove.getLeft());
 }
 
 /*
@@ -364,4 +368,20 @@ public boolean contains(E element){
 
 return false;
 }
+
+  public AVLNode<E> find(E element) {
+
+
+     AVLNode<E> temp = rootAbove.getLeft();
+
+     while(temp != null){
+      if(temp.getElement().equals(element))
+        return temp;
+
+      int balance = element.compareTo(temp.getElement());
+      temp = (balance < 0) ? temp.getLeft() : temp.getRight();
+    }
+
+    return null;
+  }
 }

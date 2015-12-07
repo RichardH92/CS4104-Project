@@ -9,12 +9,21 @@ public class main {
 
 		System.out.println("Segments:\n" + test.toString());
 
-		System.out.println("Intersection Points:");
+		System.out.println("\n\nIntersection Points:");
 
 		List<Point> i_points = s.solve(test);
 
 		for (int i = 0; i < i_points.size(); i++) {
 			System.out.println(i_points.get(i).toString());
+		}
+
+		System.out.println("\n\n");
+
+		Algo_Solver solver = new Algo_Solver(test);
+		List<Point> i_points_two = solver.find_intersection_points();
+
+		for (int i = 0; i < i_points_two.size(); i++) {
+			System.out.println(i_points_two.get(i).toString());
 		}
 	}
 }
