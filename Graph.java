@@ -43,12 +43,6 @@ public class Graph {
 		}
 	}
 
-	public Point[] find_intersection_points() {
-		//TODO: Run the algorithm here to find the intersection points		
-
-		return null;
-	}
-
 	public String toString() {
 		String ret = "";
 

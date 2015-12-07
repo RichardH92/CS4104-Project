@@ -98,6 +98,7 @@ public void insert(E element){
 
 public void remove(E element) {
   remove(element, rootAbove.getLeft());
+  //remove(element, rootAbove);
 }
 
 /*
