@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Algo_Solver {
-	private Stack<EndpointEvent> queue;
+	Stack<EndpointEvent> queue;
 	private AVLTree<Segment> t;
 	private ArrayList<Point> i_points;
 
@@ -143,8 +143,4 @@ public class Algo_Solver {
 		return neighbors;
 
 	}
-
-
-
-
 }

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class main {
 	public static void main(String[] args) {
-		Graph test = new Graph();
+		Graph test = new Graph(3);
 
 		Brute_Force_Solver s = new Brute_Force_Solver();
 

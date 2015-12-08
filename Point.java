@@ -27,4 +27,11 @@ public class Point {
 
 		return ret;
 	}
+
+	@Override
+	public boolean equals(Object other) {
+		Point p = (Point) other;
+
+		return x_coord == p.get_x_coord() && y_coord == p.get_y_coord();
+	}
 }

@@ -251,5 +251,13 @@ public class Test_Segment {
 		long totalTime = (endTime - startTime) / 1000000;
 
 		System.out.println("Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\n");
+
+		Algo_Solver solver = new Algo_Solver(graph);
+		startTime = System.nanoTime();
+		solver.find_intersection_points();
+		endTime = System.nanoTime();
+
+		totalTime = (endTime - startTime) / 1000000;
+		System.out.println("Our algorithm with " + n + " segments ran for " + totalTime + " milliseconds\n");
 	}
 }

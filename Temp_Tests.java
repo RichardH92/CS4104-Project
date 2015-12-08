@@ -62,4 +62,45 @@ public class Temp_Tests {
 		t.insert(seg3);
 		System.out.println("The parent of segment3 is " + t.get_parent(new AVLNode<Segment>(seg3)));
 	}
+
+	public static void Test_IntersectionReporting() {
+		Segment[] segments = new Segment[3];
+
+		Segment seg1 = new Segment(new Point(3.9997594942063444, 1.1787070260415378), 
+			new Point(3.9997594942063444, 0.020000261528278496));
+
+		Segment seg2 = new Segment(new Point(3.7861635976619903, 0.8320158657143462), 
+			new Point(4.037321062602126, 0.8320158657143462));
+
+		Segment seg3 = new Segment(new Point(3.889217227240601, 4.160527207318134), 
+			new Point(4.468254571218756, 4.160527207318134));
+
+		segments[0] = seg1;
+		segments[1] = seg2;
+		segments[2] = seg3;
+
+		Graph graph = new Graph(segments);
+
+		Algo_Solver solver = new Algo_Solver(graph);
+		// Checking initial queue status
+		/*for (int i = 0; i < 6; i++) {
+			System.out.println(solver.queue.pop().toString());
+		}*/
+		Brute_Force_Solver s = new Brute_Force_Solver();
+		
+		List<Point> i_points = s.solve(graph);
+		System.out.println("Brute-force algorithm:");
+		for (int i = 0; i < i_points.size(); i++) {
+			System.out.println(i_points.get(i).toString());
+		}
+		System.out.println("\n");
+		List<Point> intersections = solver.find_intersection_points();
+
+		System.out.println("Our algorithm:");
+		for (int i = 0; i < intersections.size(); i++) {
+			System.out.println(intersections.get(i).toString());
+		}
+		System.out.println("\n");
+	}
+
 }
