@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Algo_Solver {
 	Stack<EndpointEvent> queue;
-	private AVLTree<Segment> t;
+	AVLTree<Segment> t;
 	private ArrayList<Point> i_points;
 
 	public Algo_Solver(Graph g) {

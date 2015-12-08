@@ -101,6 +101,7 @@ public class Temp_Tests {
 			System.out.println(intersections.get(i).toString());
 		}
 		System.out.println("\n");
+		BTreePrinter.printNode(solver.t.rootAbove);
 	}
 
 }

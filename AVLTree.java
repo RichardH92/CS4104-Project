@@ -1,6 +1,6 @@
 public class AVLTree<E extends Comparable<? super E>> {
 
-  private AVLNode<E> rootAbove;
+  AVLNode<E> rootAbove;
 
   public AVLTree(){
     rootAbove = new AVLNode<E>();

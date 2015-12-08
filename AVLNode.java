@@ -15,8 +15,8 @@
  * */
 public class AVLNode<E extends Comparable<? super E>> {
 
-  private AVLNode<E> left, right;
-  private E element;
+  AVLNode<E> left, right;
+  E element;
 
   //the default constructor used to initialize
   //this AVLNode with a null element

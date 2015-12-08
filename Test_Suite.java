@@ -19,8 +19,8 @@ public class Test_Suite {
 		Test_Segment.Test_Running_Time_For_n_Segments(2000);
 		Test_Segment.Test_Running_Time_For_n_Segments(10000);
 		Test_Segment.Test_Running_Time_For_n_Segments(20000);*/
-		/*Temp_Tests.Test_EndpointEvent_Sorting();
-		Temp_Tests.Test_AVLTree_getParent();*/
+		//Temp_Tests.Test_EndpointEvent_Sorting();
+		//Temp_Tests.Test_AVLTree_getParent();
 		Temp_Tests.Test_IntersectionReporting();
 	}
 }
