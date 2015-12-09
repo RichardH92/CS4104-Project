@@ -1,3 +1,7 @@
+/**
+ * @author Michael Levet
+ * http://www.dreamincode.net/forums/topic/236424-data-structures-avl-tree-tutorial/
+ */
 public class AVLTree<E extends Comparable<? super E>> {
 
   AVLNode<E> rootAbove;

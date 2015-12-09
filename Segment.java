@@ -45,7 +45,7 @@ public class Segment implements Comparable<Segment>{
 
 		if (horizontal == 1) {
 			double x1 = min_x + (max_x - min_x) * random.nextDouble();
-			double x2 = min_x + (max_x - min_x) * random.nextDouble();
+			double x2 = x1 + 100;
 			double y = min_y + (max_y - min_y) * random.nextDouble();
 
 			if (x1 < x2) {
@@ -61,7 +61,7 @@ public class Segment implements Comparable<Segment>{
 		}
 		else {
 			double y1 = min_y + (max_y - min_y) * random.nextDouble();
-			double y2 = min_y + (max_y - min_y) * random.nextDouble();
+			double y2 = y1 - 100;
 			double x = min_x + (max_x - min_x) * random.nextDouble();
 
 			if (y1 > y2) {

@@ -51,10 +51,7 @@ public class Algo_Solver {
 		i_points = new ArrayList<Point>();
 
 		while (!queue.empty()) {
-			EndpointEvent event = queue.pop();
-			//System.out.println("Handling event: " + event.toString());
-			//System.out.println("\n");
-			handle_event(event);
+			handle_event(queue.pop());
 		}
 
 		return i_points;
@@ -64,19 +61,10 @@ public class Algo_Solver {
 
 		switch (e.getType()) {
 		case LEFT:
-			//BTreePrinter.printNode(t.rootAbove.getLeft());
 			ArrayList<Segment> intersections = searchRange(t.rootAbove.getLeft(), e.segment.get_point_a().get_x_coord(), e.segment.get_point_b().get_x_coord());
 			for (Segment segment : intersections) {
 				i_points.add(e.segment.intersects(segment));
 			}
-			//intersection_check_helper(e);
-			//BTreePrinter.printNode(t.rootAbove.getLeft());
-			break;
-
-		case RIGHT:
-			//System.out.println("Removing: " + e.toString());
-			//t.remove(e.segment);
-
 			break;
 
 		case TOP:
@@ -86,147 +74,7 @@ public class Algo_Solver {
 		case BOTTOM:
 			t.remove(e.segment);
 			break;
-
-		/*case INTERSECT:
-			intersection_event_helper((IntersectEvent) e);
-
-			break;*/
 		}
-		//BTreePrinter.printNode(t.rootAbove.getLeft());
-		//
-		//System.out.println('\n');
-	}
-
-	private void intersection_check_helper(EndpointEvent e) {
-		t.insert(e.segment);
-
-		//Segment neighbors[] = get_neighbors(e.segment);
-
-		/*for (int i = 0; i < 4; i++) {
-			if (neighbors[i] != null) {
-
-				Point temp = e.segment.intersects(neighbors[i]);
-				if (temp != null) {
-					//System.out.println("FIRST");
-					i_points.add(temp);
-					IntersectEvent ie = new IntersectEvent(temp, e.segment, Type.INTERSECT, neighbors[i]);
-					queue.push(ie);
-				}
-			}
-		}*/
-
-		AVLNode<Segment> temp = t.find(e.segment);
-		AVLNode<Segment> rNeighb = t.get_right_neighbor(temp);
-		AVLNode<Segment> lNeighb = t.get_left_neighbor(temp);
-
-		if (lNeighb != null) {
-			Point tempPoint = e.segment.intersects(lNeighb.getElement());
-			if (tempPoint != null)
-				i_points.add(tempPoint);
-		}
-		if (rNeighb != null) {
-			Point tempPoint = e.segment.intersects(rNeighb.getElement());
-			if (tempPoint != null) {
-				i_points.add(tempPoint);
-				IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, rNeighb.getElement());
-				queue.push(ie);
-			}
-		}
-
-	}
-
-	private void intersection_event_helper(IntersectEvent e) {
-
-		AVLNode<Segment> temp = t.find(e.i_segment);
-		AVLNode<Segment> rNeighb = t.get_right_neighbor(temp);
-		if (rNeighb != null) {
-			Point tempPoint = e.segment.intersects(rNeighb.getElement());
-			if (tempPoint != null) {
-				i_points.add(tempPoint);
-				IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, rNeighb.getElement());
-				queue.push(ie);
-			}
-		}
-
-		//System.out.println(e);
-		//System.out.println(temp);
-		//BTreePrinter.printNode(t.rootAbove.getLeft());
-		/*AVLNode<Segment> parent = t.get_parent(temp);
-		if (parent != null && parent.getLeft() == temp) {
-			Point tempPoint = e.segment.intersects(parent.getElement());
-			if (tempPoint != null) {
-				//System.out.println("SECOND");
-				i_points.add(tempPoint);
-				IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, parent.getElement());
-				queue.push(ie);
-			}
-		}
-
-		if (temp.getRight() != null) {
-			if (temp.getRight().getLeft() != null && e.segment.intersects(temp.getRight().getLeft().getElement()) != null) {
-				Point tempPoint = e.segment.intersects(temp.getRight().getLeft().getElement());
-				if (tempPoint != null) {
-					//System.out.println("THIRD");
-					i_points.add(tempPoint);
-					IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, temp.getRight().getLeft().getElement());
-					queue.push(ie);
-				}
-			} 
-			else {
-				Point tempPoint = e.segment.intersects(temp.getRight().getElement());
-				if (tempPoint != null) {
-					//System.out.println("THIRD");
-					i_points.add(tempPoint);
-					IntersectEvent ie = new IntersectEvent(tempPoint, e.segment, Type.INTERSECT, temp.getRight().getElement());
-					queue.push(ie);
-				}
-			}
-		}*/
-
-
-	}
-
-	private Segment[] get_neighbors(Segment s) {
-
-		AVLNode<Segment> temp = t.find(s);
-		Segment[] neighbors = new Segment[5];
-
-		if (temp != null) {
-			if (temp.getLeft() != null) {
-				neighbors[0] = temp.getLeft().getElement();
-			}
-
-
-			if (temp.getRight() != null) {
-				neighbors[1] = temp.getRight().getElement();
-			}
-
-
-			/*if (t.get_parent(temp) != null) {
-				neighbors[2] = t.get_parent(temp).getElement();
-				AVLNode<Segment> parent = t.get_parent(temp);
-				AVLNode<Segment> grandparent = t.get_parent(parent);
-
-				if (grandparent != null) {
-					if (temp.getElement().compareTo(parent.getElement()) == 1 &&  temp.getElement().compareTo(grandparent.getElement()) == -1) {
-						neighbors[3] = grandparent.getElement();
-					} else if (temp.getElement().compareTo(parent.getElement()) == -1 && temp.getElement().compareTo(grandparent.getElement()) == 1) {
-						neighbors[3] = grandparent.getElement();
-					}
-				}
-				/*if ((t.get_parent(temp)).getRight() != null && (t.get_parent(temp)).getRight() != temp) {
-					neighbors[3] = t.get_parent(temp).getRight().getElement();
-				}*/
-				/*if ((t.get_parent(temp)).getLeft() != null && (t.get_parent(temp)).getLeft() != temp) {
-					neighbors[4] = t.get_parent(temp).getLeft().getElement();
-				}*/
-			}
-
-
-		
-
-		return neighbors;
-
 	}
 
 	public ArrayList<Segment> searchRange(AVLNode<Segment> root, double k1, double k2) {

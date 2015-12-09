@@ -16,7 +16,6 @@ public class Brute_Force_Solver {
 				}
 			}
 		}
-
 		return i_list;
 	}
 }
