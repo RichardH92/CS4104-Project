@@ -1,6 +1,6 @@
-Richard Hart
-Eyosedike Zewdie
-Robert Blissard
+Richard Hart (rhart92)
+Eyosedike Zewdie (eyobest)
+Robert Blissard (blissard)
 
 How to run:
 - run 'make' to compile the project

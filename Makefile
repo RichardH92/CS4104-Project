@@ -13,4 +13,4 @@ run:
 	java main
 
 clean:
-	rm *.class
+	rm *.class IntersectionsFor*Segments.txt
