@@ -2,6 +2,9 @@ Richard Hart (rhart92)
 Eyosedike Zewdie (eyobest)
 Robert Blissard (blissard)
 
+
+Our plot is located in Algo_Time_Plot.pdf.
+
 How to run:
 - run 'make' to compile the project
 - run 'java main' to run the executable that runs the tests for various input sizes
