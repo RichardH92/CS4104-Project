@@ -23,7 +23,7 @@ public class Point {
 	}
 
 	public String toString() {
-		String ret = "(" + x_coord + "," + " " + y_coord + ")";
+		String ret = "(" + String.format("%, .0f", x_coord) + "," + " " + String.format("%, .0f", y_coord) + ")";
 
 		return ret;
 	}

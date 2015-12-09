@@ -64,7 +64,7 @@ public class Temp_Tests {
 	}
 
 	public static void Test_IntersectionReporting() {
-		Segment[] segments = new Segment[3];
+		Segment[] segments = new Segment[4];
 
 		Segment seg1 = new Segment(new Point(3.9997594942063444, 1.1787070260415378), 
 			new Point(3.9997594942063444, 0.020000261528278496));
@@ -75,10 +75,24 @@ public class Temp_Tests {
 		Segment seg3 = new Segment(new Point(3.889217227240601, 4.160527207318134), 
 			new Point(4.468254571218756, 4.160527207318134));
 
-		segments[0] = seg1;
-		segments[1] = seg2;
-		segments[2] = seg3;
+		Segment seg4 = new Segment(new Point(0, 1), new Point(8, 1));
 
+		Segment seg5 = new Segment(new Point(2, 2), new Point(2, 0));
+
+		Segment seg6 = new Segment(new Point(4, 2), new Point(4, 0));
+
+		Segment seg7 = new Segment(new Point(6, 2), new Point(6, 0));
+
+		Segment seg8 = new Segment(new Point(2, 4), new Point(4, 4));
+
+		Segment seg9 = new Segment(new Point(194.62791389197014, 478.92097998303024), new Point(194.62791389197014, 221.18980378165082));
+		Segment seg10 = new Segment(new Point(252.8850765852797, 401.47227276218854), new Point(252.8850765852797, 41.457411169691426));
+		Segment seg11 = new Segment(new Point(16.37750393168225, 440.1702393356628), new Point(16.37750393168225, 33.144565826296876));
+		Segment seg12 = new Segment(new Point(75.95545391377867, 391.2431797582355), new Point(381.5430936774257, 391.2431797582355));
+		segments[0] = seg9; // 1
+		segments[1] = seg10; // 6
+		segments[2] = seg11; // 7
+		segments[3] = seg12; // 9
 		Graph graph = new Graph(segments);
 
 		Algo_Solver solver = new Algo_Solver(graph);
@@ -101,7 +115,8 @@ public class Temp_Tests {
 			System.out.println(intersections.get(i).toString());
 		}
 		System.out.println("\n");
-		BTreePrinter.printNode(solver.t.rootAbove);
 	}
+
+
 
 }

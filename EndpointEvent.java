@@ -22,6 +22,6 @@ public class EndpointEvent {
 	}
 
 	public String toString() {
-		return type.toString() + " EndpointEvent\ny-coord: " + point.get_y_coord();
+		return type.toString() + " EndpointEvent\nx-coord: "+ point.get_x_coord() + ", y-coord: " + point.get_y_coord();
 	}
 }
