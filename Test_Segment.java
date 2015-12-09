@@ -255,13 +255,15 @@ public class Test_Segment {
 		try {
 			PrintWriter writer = new PrintWriter(filename, "UTF-8");
 			Graph graph = new Graph(n);
+			Brute_Force_Solver bruteForceSolver = new Brute_Force_Solver();
+			bruteForceSolver.preProcessSegments(graph);
 
 			long startTime = System.nanoTime();
-			List<Point> bruteForce_i_points = Brute_Force_Solver.solve(graph);
+			List<Point> bruteForce_i_points = bruteForceSolver.solve(graph);
 			long endTime = System.nanoTime();
 
 			long totalTime = (endTime - startTime) / 1000000;
-			String bruteForceRunTime = "Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\nReported " + bruteForce_i_points.size() / 2 + " intersection points.\n";
+			String bruteForceRunTime = "Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\nReported " + bruteForce_i_points.size() + " intersection points.\n";
 			System.out.println(bruteForceRunTime);
 
 			Algo_Solver solver = new Algo_Solver(graph);
@@ -291,12 +293,5 @@ public class Test_Segment {
 		} catch (FileNotFoundException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-
-
-
-
-
-
-
 	}
 }

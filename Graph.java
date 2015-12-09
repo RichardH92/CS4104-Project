@@ -19,17 +19,24 @@ public class Graph {
 	}
 
 	private void constructer_helper(int num_segments) {
-		segments = new Segment[num_segments];
+		segments = new Segment[2 * num_segments];
 
 		for(int i = 0; i < num_segments; i++) {
-			boolean overlaps = true;
+
+			segments[i] = new Segment(DEFAULT_MIN_X, DEFAULT_MAX_X, DEFAULT_MIN_Y, DEFAULT_MAX_Y, true);
+		}
+		for(int i = num_segments; i < 2 * num_segments; i++) {
+
+			segments[i] = new Segment(DEFAULT_MIN_X, DEFAULT_MAX_X, DEFAULT_MIN_Y, DEFAULT_MAX_Y, false);
+		}
+			/*boolean overlaps = true;
 			Segment temp = null;
 
 			while (overlaps) {
 				overlaps = false;
 				temp = new Segment(DEFAULT_MIN_X, DEFAULT_MAX_X, DEFAULT_MIN_Y, DEFAULT_MAX_Y);
-
-				for(int j = 0; j < i; j++) {
+				for (int i = 0; i < num)
+				/*for(int j = 0; j < i; j++) {
 					if (i != j) {
 						if (temp.overlaps(segments[j])) {
 							overlaps = true;
@@ -40,7 +47,7 @@ public class Graph {
 			}
 
 			segments[i] = temp;
-		}
+		}*/
 	}
 
 	public String toString() {

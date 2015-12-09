@@ -32,18 +32,17 @@ public class Segment implements Comparable<Segment>{
 	}
 
 	public Segment() {
-		contsructor_helper(DEFAULT_MIN_X, DEFAULT_MAX_X, DEFAULT_MIN_Y, DEFAULT_MAX_Y);
+		contsructor_helper(DEFAULT_MIN_X, DEFAULT_MAX_X, DEFAULT_MIN_Y, DEFAULT_MAX_Y, true);
 	}
 
-	public Segment(double min_x, double max_x, double min_y, double max_y) {
-		contsructor_helper(min_x, max_x, min_y, max_y);
+	public Segment(double min_x, double max_x, double min_y, double max_y, boolean isHorizontal) {
+		contsructor_helper(min_x, max_x, min_y, max_y, isHorizontal);
 	}
 
-	private void contsructor_helper(double min_x, double max_x, double min_y, double max_y) {
+	private void contsructor_helper(double min_x, double max_x, double min_y, double max_y, boolean isHorizontal) {
 		Random random = new Random();
-		int horizontal = random.nextInt(2) + 0;
 
-		if (horizontal == 1) {
+		if (isHorizontal) {
 			double x1 = min_x + (max_x - min_x) * random.nextDouble();
 			double x2 = x1 + 100;
 			double y = min_y + (max_y - min_y) * random.nextDouble();
