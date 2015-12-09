@@ -1,9 +1,9 @@
 public class Graph {
 	private final int DEFAULT_NUM_SEGMENTS = 2000;
 	private final double DEFAULT_MIN_X = 0.0;
-	private final double DEFAULT_MAX_X = 10000.0;
+	private final double DEFAULT_MAX_X = 100000.0;
 	private final double DEFAULT_MIN_Y = 0.0;
-	private final double DEFAULT_MAX_Y = 10000.0;
+	private final double DEFAULT_MAX_Y = 100000.0;
 	private Segment[] segments;
 
 	public Graph() {

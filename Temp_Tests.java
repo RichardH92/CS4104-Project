@@ -63,6 +63,27 @@ public class Temp_Tests {
 		System.out.println("The parent of segment3 is " + t.get_parent(new AVLNode<Segment>(seg3)));
 	}
 
+	public static void Test_OverlappingSegmentIntersection() {
+		Segment seg1 = new Segment(new Point(2, 2), new Point(5, 2));
+		Segment seg2 = new Segment(new Point(3, 2), new Point(6, 2));
+		Segment seg3 = new Segment(new Point(4, 4), new Point(4, 1));
+
+		Segment[] segments = new Segment[3];
+		segments[0] = seg1;
+		segments[1] = seg2;
+		segments[2] = seg3;
+		Graph graph = new Graph(segments);
+
+		Algo_Solver solver = new Algo_Solver(graph);
+		List<Point> intersections = solver.find_intersection_points();
+
+		System.out.println("Our algorithm:");
+		for (int i = 0; i < intersections.size(); i++) {
+			System.out.println(intersections.get(i).toString());
+		}
+		System.out.println("\n");
+	}
+
 	public static void Test_IntersectionReporting() {
 		Segment[] segments = new Segment[4];
 

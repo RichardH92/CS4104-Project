@@ -11,7 +11,7 @@ public class Brute_Force_Solver {
 				if (i != j) {
 					Point p = s[i].intersects(s[j]);
 
-					if (p != null && !i_list.contains(p))
+					if (p != null)
 						i_list.add(p);
 				}
 			}

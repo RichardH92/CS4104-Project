@@ -1,3 +1,4 @@
+import java.util.*;
 public class Test_Segment {
 
 	public static boolean Test_Intersection_True() {
@@ -240,24 +241,23 @@ public class Test_Segment {
 	}
 
 	public static void Test_Running_Time_For_n_Segments(int n) {
-		System.out.println("Test_Running_Time_For_n_Segments");
-
+		System.out.println("---------------------------------\n");
 		Graph graph = new Graph(n);
 
 		long startTime = System.nanoTime();
-		Brute_Force_Solver.solve(graph);
+		List<Point> bruteForce_i_points = Brute_Force_Solver.solve(graph);
 		long endTime = System.nanoTime();
 
 		long totalTime = (endTime - startTime) / 1000000;
 
-		System.out.println("Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\n");
+		System.out.println("Brute force algorithm with " + n + " segments ran for " + totalTime + " milliseconds\nReported " + bruteForce_i_points.size() / 2 + " intersection points.\n");
 
 		Algo_Solver solver = new Algo_Solver(graph);
 		startTime = System.nanoTime();
-		solver.find_intersection_points();
+		List<Point> algo_i_points = solver.find_intersection_points();
 		endTime = System.nanoTime();
 
 		totalTime = (endTime - startTime) / 1000000;
-		System.out.println("Our algorithm with " + n + " segments ran for " + totalTime + " milliseconds\n");
+		System.out.println("Our algorithm with " + n + " segments ran for " + totalTime + " milliseconds\nReported " + algo_i_points.size() + " intersection points.\n");
 	}
 }
