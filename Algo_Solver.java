@@ -77,30 +77,38 @@ public class Algo_Solver {
 		}
 	}
 
+	/**
+	 * Modified from:
+	 * http://blog.welkinlan.com/2015/05/22/search-range-in-binary-search-tree-lintcode-java/
+	 * @param  root The root of the AVL tree to start the range search on.
+	 * @param  k1   The minimum range bound.
+	 * @param  k2   The maximum range bound;
+	 * @return      A list of segments within the desired range.
+	 */
 	public ArrayList<Segment> searchRange(AVLNode<Segment> root, double k1, double k2) {
-        // write your code here
-        ArrayList<Segment> result = new ArrayList<Segment>();
-        if (root == null) {
-            return result;
-        }
-        LinkedList<AVLNode<Segment>> stack = new LinkedList<AVLNode<Segment>>();
-        while (root != null || !stack.isEmpty()) {
-            //left
-            if (root != null) {
-                stack.push(root);
-                root = root.getLeft();
-            } else {
-                //root
-                root = stack.pop();
-                if (root.getElement().get_point_a().get_x_coord() >= k1 && root.getElement().get_point_a().get_x_coord() <= k2) {
-                    result.add(root.getElement());
-                } else if (root.getElement().get_point_a().get_x_coord() > k2) {
-                    break;
-                }
-                //right
-                root = root.getRight();
-            }
-        }
-        return result;
-    } 
+		// write your code here
+		ArrayList<Segment> result = new ArrayList<Segment>();
+		if (root == null) {
+			return result;
+		}
+		LinkedList<AVLNode<Segment>> stack = new LinkedList<AVLNode<Segment>>();
+		while (root != null || !stack.isEmpty()) {
+			//left
+			if (root != null) {
+				stack.push(root);
+				root = root.getLeft();
+			} else {
+				//root
+				root = stack.pop();
+				if (root.getElement().get_point_a().get_x_coord() >= k1 && root.getElement().get_point_a().get_x_coord() <= k2) {
+					result.add(root.getElement());
+				} else if (root.getElement().get_point_a().get_x_coord() > k2) {
+					break;
+				}
+				//right
+				root = root.getRight();
+			}
+		}
+		return result;
+	}
 }
